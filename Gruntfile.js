@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         noreport: true,
         options: {
           compilation_level: 'ADVANCED_OPTIMIZATIONS',
-          source_map_format: "V2",
+          // source_map_format: "V2",
           // formatting: 'pretty_print',
           warning_level: 'QUIET',
           // language_in: 'ECMASCRIPT5_STRICT'

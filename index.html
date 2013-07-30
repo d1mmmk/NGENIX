@@ -10,77 +10,47 @@
         <script src="js/modernizr.min.js"></script>
     </head>
     <body>
-        <div class="col-12 col-sm-6 col-lg-4">
-            <form class="form-horizontal" ng-bmr>
+        <div class="col-0 col-sm-3 col-lg-3"></div>
+        <div class="col-6 col-sm-6 col-lg-6">
+        <br>
+            <form class="form-horizontal" id="form">
                 <fieldset>
-                    <legend>Legend</legend>
                     <div class="row">
-                        <label for="system" class="control-label col-12 col-sm-6 col-lg-4">Measuring system:</label>
-                        <div class="col-12 col-sm-6 col-lg-6">
-                            <select name="system" id="system">
-                                <option value="mertic">Mertic(cm/kg)</option>
-                                <option value="imperial">Imperial(Feet/inches/pounds)</option>
-                            </select>
+                        <label for="start" class="control-label col-12 col-sm-6 col-lg-4">Start:</label>
+                        <div class="col-12 col-sm-6 col-lg-6 input-group">
+                            <input name="start" id="start" type="number" pattern="\[0..9]+?" min="0" step="10" value="0">
+                            <!-- <span class="input-group-addon"></span> -->
                         </div>
                     </div>
                     <div class="row">
-                        <label for="height_cm" class="control-label col-12 col-sm-6 col-lg-4">Height (centimeters):</label>
-                        <div class="col-12 col-sm-4 col-lg-3">
-                            <input name="height_cm" id="height_cm" type="number" pattern="\[0..9]+?" min="1">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <label for="weight_kg" class="control-label col-12 col-sm-6 col-lg-4">Weight (Kg):</label>
-                        <div class="col-12 col-sm-4 col-lg-3">
-                            <input name="weight_kg" id="weight_kg" type="number" pattern="\[0..9]+?" min="1">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <label for="age" class="control-label col-12 col-sm-6 col-lg-4">Age:</label>
-                        <div class="col-12 col-sm-4 col-lg-3">
-                            <input name="age" id="age" type="number" pattern="\[0..9]+?" min="1">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <label for="sex" class="control-label col-12 col-sm-6 col-lg-4">Gender:</label>
-                        <div class="col-12 col-sm-6 col-lg-8">
-                            <select name="" id="">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
+                        <label for="end" class="control-label col-12 col-sm-6 col-lg-4">End:</label>
+                        <div class="col-12 col-sm-6 col-lg-6 input-group">
+                            <input name="end" id="end" type="number" pattern="\[0..9]+?" step="1" value="5" min="1">
+                            <!-- <span class="input-group-addon"></span> -->
                         </div>
                     </div>
                     <div class="row"></div>
-                    <button type="submit" class="btn btn-default">Save result</button>
+                    <button type="submit" class="btn ">Send request</button>
                 </fieldset>
             </form>
+            <div id="chart" class="chart"></div>
         </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-            <h4>The original Harris-Benedict equations published in 1918 and 1919.</h4>
-            <p>Men BMR = 66.4730 + (13.7516 x weight in kg) + (5.0033 x height in cm) – (6.7550 x age in years)</p>
-            <p>Women   BMR = 655.0955 + (9.5634 x weight in kg) + (1.8496 x height in cm) – (4.6756 x age in years)</p>
-            <h4>The Harris-Benedict equations revised by Roza and Shizgal in 1984.</h4>
-            <p>Men BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) - (5.677 x age in years)</p>
-            <p>Women   BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) - (4.330 x age in years)</p>
-
-        </div>
+        <div class="col-3 col-sm-3 col-lg-4"></div>
         <!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
         <script type="text/javascript">
-
-
             Modernizr.load([
                 {
                     load: [
-                        'js/angular.min.js',
-                        'js/jquery.min.js',
-                        'js/bootstrap.min.js',
                         'js/application.min.js',
                         ],
                     complete: function() {
-                                            }
+                        chart = new DataPiece({
+                            formID: "form",
+                            chartID: "chart"
+                        })
+                    }
                 }
             ]);
         </script>
-        <script src="http://localhost:1337/livereload.js"></script>
     </body>
 </html>
