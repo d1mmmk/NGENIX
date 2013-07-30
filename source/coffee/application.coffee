@@ -1,0 +1,6 @@
+
+
+
+(($,window) ->
+	
+)(jQuery, window)
