@@ -9,7 +9,7 @@ for input in inputs
 window["DataPiece"] = (param) ->
 	chartBlock = window.document.getElementById param["chartID"]
 	form = window.document.getElementById param["formID"]
-	salt = new Date().getTime()
+	salt = new Date().getTime() + param["formID"]
 	callbackname = "getdata"+salt
 	scriptVar = 'script'+salt
 

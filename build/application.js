@@ -18,7 +18,7 @@
     var callbackname, chartBlock, form, getMax, renderData, salt, scriptVar;
     chartBlock = window.document.getElementById(param["chartID"]);
     form = window.document.getElementById(param["formID"]);
-    salt = new Date().getTime();
+    salt = new Date().getTime() + param["formID"];
     callbackname = "getdata" + salt;
     scriptVar = 'script' + salt;
     getMax = function(data) {

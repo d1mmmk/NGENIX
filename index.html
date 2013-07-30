@@ -34,6 +34,29 @@
                 </fieldset>
             </form>
             <div id="chart" class="chart"></div>
+            
+        <br>
+            <form class="form-horizontal" id="form2">
+                <fieldset>
+                    <div class="row">
+                        <label for="start" class="control-label col-12 col-sm-6 col-lg-4">Start:</label>
+                        <div class="col-12 col-sm-6 col-lg-6 input-group">
+                            <input name="start" id="start" type="number" pattern="\[0..9]+?" min="0" step="10" value="0">
+                            <!-- <span class="input-group-addon"></span> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="end" class="control-label col-12 col-sm-6 col-lg-4">End:</label>
+                        <div class="col-12 col-sm-6 col-lg-6 input-group">
+                            <input name="end" id="end" type="number" pattern="\[0..9]+?" step="1" value="5" min="1">
+                            <!-- <span class="input-group-addon"></span> -->
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                    <button type="submit" class="btn ">Send request</button>
+                </fieldset>
+            </form>
+            <div id="chart2" class="chart"></div>
         </div>
         <div class="col-3 col-sm-3 col-lg-4"></div>
         <!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
@@ -41,12 +64,16 @@
             Modernizr.load([
                 {
                     load: [
-                        'js/application.min.js',
+                        'build/application.js',
                         ],
                     complete: function() {
                         chart = new DataPiece({
                             formID: "form",
                             chartID: "chart"
+                        })
+                        chart2 = new DataPiece({
+                            formID: "form2",
+                            chartID: "chart2"
                         })
                     }
                 }
